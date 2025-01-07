@@ -1,9 +1,10 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -22,5 +23,8 @@ public class Atendimento extends Model{
 	public String toString() {
 		return nome + " - " + especializacao;
 	}
+	
+	@ManyToMany
+	public List<Animal> animais;
 }
 		

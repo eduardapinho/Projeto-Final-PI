@@ -43,12 +43,23 @@ public class Animais extends Controller {
 	
 	
 	public static void salvar(Animal a, List<Long> atendimentosIds) {
+		String mensagem = null;
+
+		Animal animalDuplicado = Animal.find(
+				"nome = ?1 AND idade = ?2 AND raca = ?3 AND especie = ?4 AND peso = ?5 AND sexo = ?6 AND tutor = ?7 AND status = ?8",
+				a.nome, a.idade, a.raca, a.especie, a.peso, a.sexo, a.tutor, Status.ATIVO).first();
+
+		if (animalDuplicado != null && a.id == null) {
+			flash.error("Já existe um animal com os mesmos dados cadastrados!"); 
+			listar(null);
+		}
+		
 		if (atendimentosIds != null) {
 	        List<Atendimento> atendimentos = Atendimento.find("id IN (?1)", atendimentosIds).fetch();
 	        a.atendimentos = atendimentos;
 	    }
 
-	    String mensagem = "Cadastrado com sucesso!";
+	    mensagem = "Cadastrado com sucesso!";
 	    if (a.id != null) {
 	        mensagem = "Editado com sucesso!";
 	    }
