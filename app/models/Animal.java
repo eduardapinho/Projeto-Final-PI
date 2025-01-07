@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 import play.db.jpa.Model;
 
@@ -27,7 +27,7 @@ public class Animal extends Model{
 		this.status = Status.ATIVO;
 	}
 	
-	@OneToMany
+	@ManyToMany
 	public List<Atendimento> atendimentos;
 
 }
