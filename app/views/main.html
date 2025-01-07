@@ -29,9 +29,15 @@
 				src="../public/images/logo1.png" alt="Imagem" width="80" height="60"
 				class="d-inline-block align-text-center" id="logo"> Amigo Animal
 			</a>
-			
 		</div>
 	</nav>
+	
+	<br>
+	
+	#{if session['usuarioLogado']}
+		    	<a>${session['usuarioLogado']}</a> | 
+		    	<a href="@{Logins.sair}">Logout</a>
+		    #{/if}
 
 	<br>
 
@@ -47,16 +53,6 @@
 			</div>
 			#{/if}
 			
-			<div class="container-fluid">
-			#{if flash.error}
-			<div class="alert alert-danger alert-dismissible fade show"
-				role="alert">
-				${flash.error}
-				<button type="button" class="btn-close" data-bs-dismiss="alert"
-					aria-label="Close"></button>
-			</div>
-			#{/if}
-				
 			#{doLayout /}
 			
 		</div>
