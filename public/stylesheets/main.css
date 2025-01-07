@@ -1,0 +1,62 @@
+#logo {
+    width: 55px;
+    height: auto;
+    border-radius: 100px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    left: 0; /* Remove a posição negativa */
+}
+
+nav {
+	height: 85px; /* Define uma altura fixa */
+	padding: 5px 10px; /* Ajusta o espa�amento interno */
+	line-height: 40px; /* Ajusta a altura das linhas */
+}
+
+#texto1 {
+    font-size: 25px;
+    font-style: italic;
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente o texto em relação ao logo */
+    left: 40px; /* Posiciona o texto à direita do logo */
+    transform: translateY(-50%); /* Ajuste para centralizar */
+}
+
+
+/* Ajusta a largura e a altura do carrossel */
+#carousel {
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+}
+
+/* Ajusta o tamanho das imagens dentro do carrossel */
+#carousel-image {
+	height: 600px;
+	object-fit: cover;
+}
+
+#h {
+	color: black;
+	background-color: white;
+	opacity: 0.9; /* 50% de opacidade */
+}
+
+#par {
+	color: black;
+	background-color: white;
+	opacity: 0.9; /* 50% de opacidade */
+}
+
+.footer {
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+input::placeholder {
+        text-transform: none; /* Mantém o placeholder no formato original */
+    }
