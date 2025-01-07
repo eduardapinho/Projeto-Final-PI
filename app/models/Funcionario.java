@@ -18,9 +18,6 @@ public class Funcionario extends Model{
 	@Enumerated(EnumType.STRING)
 	public Status status;
 	
-	@Enumerated(EnumType.STRING)
-	public NivelAcesso nivelAcesso;
-	
 	public Funcionario() {
 		this.status = Status.ATIVO;
 	}

@@ -13,20 +13,14 @@ import play.mvc.Controller;
 			String usuarioLogado = Funcionario.autenticar(username, senha);
 			if (usuarioLogado == null) {
 				//USUARIO NAO ENCONTRADO NO BANCO
-				flash.success("Credenciais inválidas");
+				flash.error("Credenciais inválidas");
 				form();
 			} else {
-				// Encontra o funcionário logado e salva o nível de acesso na sessão
-		        Funcionario funcionario = Funcionario.find("login = ?1", username).first();
-		        
 				//SOMENTE USUARIO QUE FORAM ENCONTRADOS NO BANCO
 				session.put("usuarioLogado", usuarioLogado);
-		        session.put("nivelAcesso", funcionario.nivelAcesso.toString());  // Salva o ENUM na sessão
-		    
-	                Animais.dashboard(null);
-	            }
+				Animais.dashboard();
 			}
-		
+		}
 		
 		public static void sair() {
 			session.clear();

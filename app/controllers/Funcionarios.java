@@ -2,25 +2,18 @@ package controllers;
 
 import java.util.List;
 
-import models.Atendimento;
+
 import models.Funcionario;
 import models.Status;
 import play.mvc.Controller;
-import play.mvc.With;
-
-@With(Seguranca.class)
 
 public class Funcionarios extends Controller{
 	
 	public static void form() {
-	        render();  
-	    
+		render();
 	}
 	
 	public static void salvar(Funcionario funcionario) {
-	    
-	    
-				
 		String mensagem = "Cadastrado com sucesso!";
 		if (funcionario.id != null) {
 			mensagem = "Editado com sucesso!";
@@ -30,7 +23,7 @@ public class Funcionarios extends Controller{
 		funcionario.save();
 		flash.success(mensagem);
 		listar(null);
-}
+	}
 	
 	public static void remover(Long id) {
 		Funcionario f = Funcionario.findById(id);
@@ -53,8 +46,7 @@ public class Funcionarios extends Controller{
 
 	public static void editar(Long id) {
 		Funcionario f = Funcionario.findById(id);
-		List<Funcionario> funcionarios = Funcionario.findAll();
-		renderTemplate("Funcionarios/form.html", f, funcionarios);
+		renderTemplate("Funcionario/form.html", f);
 	}
 
 }
